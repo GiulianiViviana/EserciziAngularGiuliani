@@ -10,6 +10,6 @@ export class App01Component implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }                         
+  }          cd               
 
 }
