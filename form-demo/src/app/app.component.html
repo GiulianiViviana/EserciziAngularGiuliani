@@ -1,20 +1,5 @@
-<div class="container">
-
- <form [formGroup]="myForm"
-       (ngSubmit)="onSubmit(myForm.value)"
-       class="jumbotron">
 
   <app-form-demo></app-form-demo>
+  
 
-   <div *ngIf="!myForm.controls['sku'].valid"
-         class="alert alert-danger">SKU is invalid
-   </div>
-   <div *ngIf="myForm.controls['sku'].hasError('required')"
-         class="alert alert-danger">SKU is required
-   </div>
-  
- </form>
-  
- <div *ngIf="!myForm.valid"
- class="alert alert-danger">Form is invalid</div>
-</div>
+

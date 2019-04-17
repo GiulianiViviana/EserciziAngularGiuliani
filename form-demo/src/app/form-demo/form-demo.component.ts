@@ -19,13 +19,15 @@ export class FormDemoComponent implements OnInit {
       'sku': ['ABC123'],
       'email':[],
       'password':[],
-      'Carta di credito':[],
+      
     });
    
   }
   ngOnInit() {
   }
   onSubmit(value: string): void {
-    console.log('you submitted value: ', value);
+    console.log('sku: ', this.myForm.controls['sku'].value );
+    console.log('email: ', this.myForm.controls['email'].value)
+    console.log('password: ', this.myForm.controls['password'].value)
   }
 }

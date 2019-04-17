@@ -3,14 +3,11 @@
  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="jumbotron">
    <div class="form-group">
      <label for="skuInput">SKU</label>
-     <input type="text" id="skuInput" placeholder="SKU" name="sku" 
-            [formControl]="myForm.controls['sku']" class="form-control"><br><br>
+     <input type="text" id="skuInput" placeholder="SKU" name="sku" [formControl]="myForm.controls['sku']" class="form-control"><br><br>
      <label for="email">EMAIL</label>
-     <input type="email" id="emailInput" placeholder="Email" name="email" 
-            [formControl]="myForm.controls['email']" class="form-control"><br><br>
+     <input type="email" id="emailInput" placeholder="Email" name="email" [formControl]="myForm.controls['email']" class="form-control"><br><br>
     <label for="password">PASSWORD</label>
-     <input type="password" id="passwordInput" placeholder="Password" name="password" 
-            [formControl]="myForm.controls['password']" class="form-control"><br><br>
+     <input type="password" id="passwordInput" placeholder="Password" name="password" [formControl]="myForm.controls['password']" class="form-control"><br><br>
    </div>
    <button type="submit" class="btn btn-primary">Submit</button>
  </form>
