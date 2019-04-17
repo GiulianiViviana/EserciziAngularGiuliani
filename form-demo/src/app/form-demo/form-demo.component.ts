@@ -16,8 +16,12 @@ export class FormDemoComponent implements OnInit {
     /*Diciamo al FormBuilder di creare un FormGroup che conterrà un FormControl
      *Chiamato sku, con valore di default ABC123 */
     this.myForm = fb.group({
-      'sku': ['ABC123']
+      'sku': ['ABC123'],
+      'email':[],
+      'password':[],
+      'Carta di credito':[],
     });
+   
   }
   ngOnInit() {
   }
