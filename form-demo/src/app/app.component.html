@@ -1,5 +1,21 @@
 
   <app-form-demo></app-form-demo>
   
+ 
+
+   
+   <div *ngIf="!myForm.controls['sku'].valid"
+         class="alert alert-danger">SKU is invalid
+   </div>
+   <div *ngIf="myForm.controls['sku'].hasError('required')"
+         class="alert alert-danger">SKU is required
+   </div>\
+   
+ 
+  
+ <div *ngIf="!myForm.valid"
+ class="alert alert-danger">Form is invalid</div>
+
+  
 
 
