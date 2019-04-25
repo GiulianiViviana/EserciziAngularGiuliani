@@ -1,0 +1,30 @@
+<h2>Inserire le credenziali per la prenotazione</h2>
+<form>
+    nome:<input #nome> <br><br>
+    cognome:<input #cognome> <br><br>
+    indirizzo:<input #indirizzo> <br><br>
+    telefono:<input #telefono> <br><br>
+    Data Prenotazione:<input #DataPrenotazione> <br><br>
+    OraPrenotazione:<input #OraPrenotazione> <br><br>
+    <button (click)="onAddPrenotazione(nome,cognome,indirizzo,telefono,DataPrenotazione,OraPrenotazione)"> Prenota!</button><br><br><br>
+</form>
+<br>
+<ul class="prenotazioni">
+  <li *ngFor="let prenotazione of prenotazioni"
+    [class.selected]="prenotazione === selectedPrenotazione"
+    (click)="onSelect(prenotazione)">
+    <span class="badge">{{prenotazione.DataPrenotazione}}</span> <span class="ins">{{prenotazione.nome}} {{prenotazione.cognome}}</span>
+  </li>
+</ul>
+
+<div *ngIf="selectedPrenotazione">
+
+  <h2>{{selectedPrenotazione.DataPrenotazione | uppercase}} Dettagli prenotazione</h2>
+  <div><span>{{selectedPrenotazione.DataPrenotazione}} - {{selectedPrenotazione.OraPrenotazione}} </span> {{selectedPrenotazione.nome}} {{selectedPrenotazione.cognome}}</div>
+  
+
+</div>
+<hr>
+<app-prenotazione-view *ngIf="selectedPrenotazione" [ciao]="selectedPrenotazione"></app-prenotazione-view>
+
+
