@@ -9,10 +9,12 @@ import { FormBuilder,FormGroup,Validators} from '@angular/forms';
 })
 export class PrenotazioniComponent implements OnInit {
 
-  prenotazioni = PRENOTAZIONI;
+  prenotazione : Prenotazione[];
+  
   selectedPrenotazione: Prenotazione;
   myForm: FormGroup;
  constructor(fb: FormBuilder) { 
+   this.prenotazione = Array<Prenotazione>();
   this.myForm = fb.group({
     'nome': ['', Validators.required],
     'cognome': ['', Validators.required],
@@ -24,11 +26,19 @@ export class PrenotazioniComponent implements OnInit {
  }
   ngOnInit() {
   }
-
-  onSelect(prenotazione: Prenotazione): void {
-    this.selectedPrenotazione = prenotazione;
+  onSubmit(value: string): void {
+    console.log('nome: ', this.myForm.controls['nome'].value );
+    console.log('cognome: ', this.myForm.controls['cognome'].value)
+    console.log('indirizzo: ', this.myForm.controls['indirizzo'].value)
+    console.log('telefono: ', this.myForm.controls['telefono'].value)
+    console.log('DataPrenotazione: ', this.myForm.controls['DataPrenotazione'].value)
+    console.log('OraPrenotazione: ', this.myForm.controls['OraPrenotazione'].value)
+    this.addPren();
   }
-  ngSubmit(){
+  onSelect(pr: Prenotazione): void {
+    this.selectedPrenotazione = pr;
+  }
+  addPren(){
       let pren : Prenotazione = new Prenotazione();
       pren.nome = this.myForm.controls['nome'].value;
       pren.cognome = this.myForm.controls['cognome'].value;
@@ -36,7 +46,7 @@ export class PrenotazioniComponent implements OnInit {
       pren.telefono = Number(this.myForm.controls['telefono'].value);
       pren.DataPrenotazione = this.myForm.controls['DataPrenotazione'].value;
       pren.OraPrenotazione = this.myForm.controls['OraPrenotazione'].value;
-      this.prenotazioni.push(pren);
-  
+      this.prenotazione.push(pren);
+      console.log("Aggiunto");
 }
 }

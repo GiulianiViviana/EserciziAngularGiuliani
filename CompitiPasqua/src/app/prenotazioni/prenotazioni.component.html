@@ -10,25 +10,20 @@
     Data Prenotazione: <input  type="text" name="DataPrenotazione" [formControl]="myForm.controls['DataPrenotazione']"> <br><br>
     Ora Prenotazione: <input  type="number" name="OraPrenotazione" [formControl]="myForm.controls['OraPrenotazione']"> <br><br>
   </div>
-   <button type="submit" class="btn btn-primary">Prenota!</button><br><br><br>
+   <button type="submit" class="btn btn-primary" >Prenota!</button><br><br><br>
 </form>
 </div>
 <br>
 <ul class="prenotazioni">
-  <li *ngFor="let prenotazione of prenotazioni"
-    [class.selected]="prenotazione === selectedPrenotazione"
-    (click)="onSelect(prenotazione)">
-    <span class="badge">{{this.myForm.controls['DataPrenotazione'].value}}</span> <span class="ins">{{this.myForm.controls['nome'].value}} {{this.myForm.controls['cognome'].value}}</span>
+  <li *ngFor="let mhanz of prenotazione"
+    [class.selected]="mhanz === selectedPrenotazione"
+    (click)="onSelect(mhanz)">
+    <span class="badge">{{mhanz.DataPrenotazione}}</span> 
+    <span class="ins">{{mhanz.nome}} {{mhanz.cognome}}</span>
   </li>
 </ul>
 
-<div *ngIf="selectedPrenotazione">
 
-  <h2>{{selectedPrenotazione.this.myForm.controls['DataPrenotazione'].value | uppercase}} Dettagli prenotazione</h2>
-  <div><span>{{selectedPrenotazione.this.myForm.controls['DataPrenotazione'].value}} - {{selectedPrenotazione.this.myForm.controls['OraPrenotazione'].value}} </span>{{selectedPrenotazione.nome}} {{selectedPrenotazione.cognome}}</div>
-  
-
-</div>
 <hr>
 <app-prenotazione-view *ngIf="selectedPrenotazione" [ciao]="selectedPrenotazione"></app-prenotazione-view>
 
