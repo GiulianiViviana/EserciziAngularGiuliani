@@ -1,26 +1,31 @@
+<div class="container">
 <h2>Inserire le credenziali per la prenotazione</h2>
-<form>
-    nome:<input #nome> <br><br>
-    cognome:<input #cognome> <br><br>
-    indirizzo:<input #indirizzo> <br><br>
-    telefono:<input #telefono> <br><br>
-    Data Prenotazione:<input #DataPrenotazione> <br><br>
-    OraPrenotazione:<input #OraPrenotazione> <br><br>
-    <button (click)="onAddPrenotazione(nome,cognome,indirizzo,telefono,DataPrenotazione,OraPrenotazione)"> Prenota!</button><br><br><br>
+<form  [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)"
+       class="jumbotron" >
+  <div class="form-group">
+    Nome: <input type="text" name="nome" [formControl]="myForm.controls['nome']"> <br><br>
+    Cognome: <input  type="text" name="cognome" [formControl]="myForm.controls['cognome']"> <br><br>
+    Indirizzo: <input  type="text" name="indirizzo" [formControl]="myForm.controls['indirizzo']"> <br><br>
+    Telefono: <input  type="number" name="telefono" [formControl]="myForm.controls['telefono']"> <br><br>
+    Data Prenotazione: <input  type="text" name="DataPrenotazione" [formControl]="myForm.controls['DataPrenotazione']"> <br><br>
+    Ora Prenotazione: <input  type="number" name="OraPrenotazione" [formControl]="myForm.controls['OraPrenotazione']"> <br><br>
+  </div>
+   <button type="submit" class="btn btn-primary">Prenota!</button><br><br><br>
 </form>
+</div>
 <br>
 <ul class="prenotazioni">
   <li *ngFor="let prenotazione of prenotazioni"
     [class.selected]="prenotazione === selectedPrenotazione"
     (click)="onSelect(prenotazione)">
-    <span class="badge">{{prenotazione.DataPrenotazione}}</span> <span class="ins">{{prenotazione.nome}} {{prenotazione.cognome}}</span>
+    <span class="badge">{{this.myForm.controls['DataPrenotazione'].value}}</span> <span class="ins">{{this.myForm.controls['nome'].value}} {{this.myForm.controls['cognome'].value}}</span>
   </li>
 </ul>
 
 <div *ngIf="selectedPrenotazione">
 
-  <h2>{{selectedPrenotazione.DataPrenotazione | uppercase}} Dettagli prenotazione</h2>
-  <div><span>{{selectedPrenotazione.DataPrenotazione}} - {{selectedPrenotazione.OraPrenotazione}} </span> {{selectedPrenotazione.nome}} {{selectedPrenotazione.cognome}}</div>
+  <h2>{{selectedPrenotazione.this.myForm.controls['DataPrenotazione'].value | uppercase}} Dettagli prenotazione</h2>
+  <div><span>{{selectedPrenotazione.this.myForm.controls['DataPrenotazione'].value}} - {{selectedPrenotazione.this.myForm.controls['OraPrenotazione'].value}} </span>{{selectedPrenotazione.nome}} {{selectedPrenotazione.cognome}}</div>
   
 
 </div>
