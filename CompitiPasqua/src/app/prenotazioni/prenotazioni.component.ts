@@ -19,9 +19,9 @@ export class PrenotazioniComponent implements OnInit {
     'nome': ['', Validators.required],
     'cognome': ['', Validators.required],
     'indirizzo': ['', Validators.required],
-    'telefono': [''],
+    'telefono': ['', Validators.required],
     'DataPrenotazione': ['', Validators.required],
-    'OraPrenotazione': [''],
+    'OraPrenotazione': ['', Validators.required],
   });
  }
   ngOnInit() {
@@ -43,7 +43,7 @@ export class PrenotazioniComponent implements OnInit {
       pren.nome = this.myForm.controls['nome'].value;
       pren.cognome = this.myForm.controls['cognome'].value;
       pren.indirizzo = this.myForm.controls['indirizzo'].value;
-      pren.telefono = Number(this.myForm.controls['telefono'].value);
+      pren.telefono = this.myForm.controls['telefono'].value;
       pren.DataPrenotazione = this.myForm.controls['DataPrenotazione'].value;
       pren.OraPrenotazione = this.myForm.controls['OraPrenotazione'].value;
       this.prenotazione.push(pren);
